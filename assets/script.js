@@ -46,7 +46,7 @@ class Calculator {
             case '*' :
                 computation = prev * current
                 break;   
-            case '÷' :
+            case '÷', '/' :
                 computation = prev / current
                 break;
             default:
@@ -124,3 +124,25 @@ deleteButton.addEventListener('click', button => {
     calculator.delete()
     calculator.updateDisplay()
 })
+
+
+document.addEventListener('keydown', function (event) {
+    const key = event.key;
+
+    if (/[\d.]/.test(key)) {
+        calculator.appendNumber(key);
+        calculator.updateDisplay();
+    } else if (key === '+' || key === '-' || key === '*' || key === '/') {
+        calculator.chooseOperation(key);
+        calculator.updateDisplay();
+    } else if (key === 'Enter') {
+        calculator.compute();
+        calculator.updateDisplay();
+    } else if (key === 'Escape' || key === 'c') {
+        calculator.clear();
+        calculator.updateDisplay();
+    } else if (key === 'Backspace') {
+        calculator.delete();
+        calculator.updateDisplay();
+    }
+});
