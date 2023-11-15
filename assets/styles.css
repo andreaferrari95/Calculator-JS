@@ -35,7 +35,17 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+    color: var(--text-color);
+}
+
+.html {
+    color: blue;
+}
+.css {
+    color: orange;
+}
+.js {
+    color: yellow;
 }
 
 .container {
