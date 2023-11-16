@@ -46,15 +46,16 @@ class Calculator {
             case '*' :
                 computation = prev * current
                 break;   
-            case '÷', '/' :
+            case '÷' :
+            case '/' :
                 computation = prev / current
                 break;
             default:
                 return;
         }
-        this.currentOperand = computation
+        this.currentOperand = computation.toString();
         this.operation = undefined
-        this.perviousOperand = ''
+        this.perviousOperand = this.currentOperand;
     }
     getDisplayNumber(number) {
         const stringNumber = number.toString()
